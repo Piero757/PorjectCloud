@@ -1,0 +1,40 @@
+services:
+  # Base de Datos PostgreSQL
+  - type: database
+    name: finanzas-db
+    databaseName: finanzas_db
+    user: admin
+    plan: free
+
+  # Backend (Django)
+  - type: web
+    name: finanzas-backend
+    env: docker
+    plan: free
+    region: oregon
+    rootDir: backend
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: finanzas-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+
+  # Frontend (Next.js)
+  - type: web
+    name: finanzas-frontend
+    env: node
+    plan: free
+    region: oregon
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          name: finanzas-backend
+          type: web
+          property: host
