@@ -1,7 +1,15 @@
 import axios from 'axios';
 
+const getBaseURL = () => {
+  const url = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+  if (url.includes('localhost')) return url;
+  // Si es en Render, asegurar que tenga https y termine en /api
+  const formattedUrl = url.startsWith('http') ? url : `https://${url}`;
+  return formattedUrl.endsWith('/api') ? formattedUrl : `${formattedUrl}/api`;
+};
+
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api',
+  baseURL: getBaseURL(),
 });
 
 api.interceptors.request.use((config) => {
