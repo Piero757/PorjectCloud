@@ -24,9 +24,10 @@ export default function Home() {
         alert('¡Cuenta creada con éxito! Ahora puedes iniciar sesión.');
         setIsLogin(true);
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      alert('Error en la autenticación');
+      const msg = error.response?.data ? JSON.stringify(error.response.data) : error.message;
+      alert(`Error: ${msg}`);
     }
   };
 
