@@ -1,11 +1,10 @@
-services:
-  # Base de Datos PostgreSQL
-  - type: database
-    name: finanzas-db
+databases:
+  - name: finanzas-db
     databaseName: finanzas_db
     user: admin
     plan: free
 
+services:
   # Backend (Django)
   - type: web
     name: finanzas-backend
