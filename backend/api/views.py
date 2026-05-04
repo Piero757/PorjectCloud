@@ -3,8 +3,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.contrib.auth.models import User
-from .models import Movimiento, Presupuesto
-from .serializers import UserSerializer, MovimientoSerializer, PresupuestoSerializer
+from .models import Movimiento, Presupuesto, Comprobante
+from .serializers import UserSerializer, MovimientoSerializer, PresupuestoSerializer, ComprobanteSerializer
 from django.db.models import Sum
 from datetime import datetime
 
@@ -139,3 +139,13 @@ def predicciones(request):
         "tendencia": "subiendo" if model.coef_[0] > 0 else "bajando",
         "consejo": consejo
     })
+
+class ComprobanteViewSet(viewsets.ModelViewSet):
+    serializer_class = ComprobanteSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Comprobante.objects.filter(usuario=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(usuario=self.request.user)

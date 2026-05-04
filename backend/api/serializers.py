@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Movimiento, Presupuesto
+from .models import Movimiento, Presupuesto, Comprobante
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -27,3 +27,9 @@ class PresupuestoSerializer(serializers.ModelSerializer):
         model = Presupuesto
         fields = '__all__'
         read_only_fields = ('usuario',)
+
+class ComprobanteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comprobante
+        fields = '__all__'
+        read_only_fields = ('usuario', 'igv', 'monto_neto')

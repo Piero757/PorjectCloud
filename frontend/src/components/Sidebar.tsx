@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { LayoutDashboard, Wallet, PieChart, TrendingUp, LogOut } from 'lucide-react';
+import { LayoutDashboard, Wallet, PieChart, TrendingUp, LogOut, FileText } from 'lucide-react';
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -17,6 +17,7 @@ export default function Sidebar() {
     { name: 'Movimientos', path: '/movimientos', icon: <Wallet size={20} /> },
     { name: 'Presupuestos', path: '/presupuestos', icon: <PieChart size={20} /> },
     { name: 'Predicciones', path: '/predicciones', icon: <TrendingUp size={20} /> },
+    { name: 'Impuestos', path: '/impuestos', icon: <FileText size={20} /> },
   ];
 
   return (
