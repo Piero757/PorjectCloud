@@ -37,3 +37,8 @@ services:
           name: finanzas-backend
           type: web
           property: host
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      - key: GEMINI_API_KEY
+        sync: false # El usuario debe configurarlo manualmente en el dashboard de Render
+

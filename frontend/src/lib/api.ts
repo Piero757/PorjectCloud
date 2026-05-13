@@ -15,11 +15,35 @@ const api = axios.create({
 api.interceptors.request.use((config) => {
   if (typeof window !== 'undefined') {
     const token = localStorage.getItem('token');
-    if (token && config.headers) {
+    // NO enviar token en rutas de autenticación (login/register)
+    const isAuthRoute = config.url?.includes('/auth/login/') || config.url?.includes('/auth/register/');
+    
+    if (token && config.headers && !isAuthRoute) {
       config.headers.Authorization = `Bearer ${token}`;
     }
   }
   return config;
 });
 
+// Interceptor para manejar errores 401 (token expirado o inválido)
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      if (typeof window !== 'undefined') {
+        const token = localStorage.getItem('token');
+        if (token) {
+          localStorage.removeItem('token');
+          // Si no estamos en la página de inicio, redirigir al login
+          if (window.location.pathname !== '/') {
+            window.location.href = '/';
+          }
+        }
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+
 export default api;
+
