@@ -112,7 +112,7 @@ export default function Impuestos() {
 
           {/* Tabla de Comprobantes */}
           <div className="lg:col-span-2">
-            <div className="glass-card overflow-hidden">
+            <div className="glass-card overflow-x-auto">
               <table className="w-full text-left">
                 <thead className="bg-white/5 text-xs text-gray-400 uppercase">
                   <tr>
