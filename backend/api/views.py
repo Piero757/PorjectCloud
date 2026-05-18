@@ -45,8 +45,8 @@ def register(request):
         
         # Enviar correo de bienvenida
         try:
-            subject = '¡Bienvenido a FinanzasIA! 🚀'
-            message = f'Hola {user.username},\n\nGracias por unirte a FinanzasIA. Estamos emocionados de ayudarte a tomar el control de tus finanzas con el poder de la Inteligencia Artificial.\n\nYa puedes empezar a registrar tus gastos e ingresos para obtener tus primeras predicciones.\n\nSaludos,\nEl equipo de FinanzasIA'
+            subject = '¡Bienvenido a NexoFin! 🚀'
+            message = f'Hola {user.username},\n\nGracias por unirte a NexoFin. Estamos emocionados de ayudarte a tomar el control de tus finanzas con el poder de la Inteligencia Artificial.\n\nYa puedes empezar a registrar tus gastos e ingresos para obtener tus primeras predicciones.\n\nSaludos,\nEl equipo de NexoFin'
             email_from = settings.DEFAULT_FROM_EMAIL
             recipient_list = [user.email]
             send_mail(subject, message, email_from, recipient_list, fail_silently=True)

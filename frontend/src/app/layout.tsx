@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FinanzasIA - Inteligencia Financiera",
+  title: "NexoFin - Inteligencia Financiera",
   description: "Tu asistente financiero impulsado por IA",
 };
 

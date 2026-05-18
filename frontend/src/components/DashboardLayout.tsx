@@ -16,7 +16,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <Menu size={24} />
           </button>
           <span className="ml-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-            FinanzasIA
+            NexoFin
           </span>
         </div>
         <div className="p-4 md:p-8 flex-1 w-full overflow-x-hidden">

@@ -39,7 +39,7 @@ export default function Home() {
         className="glass-card w-full max-w-md p-8"
       >
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent mb-2">FinanzasIA</h1>
+          <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent mb-2">NexoFin</h1>
           <p className="text-gray-400">Inteligencia artificial para tus finanzas</p>
         </div>
         

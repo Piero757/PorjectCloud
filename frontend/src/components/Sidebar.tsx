@@ -31,7 +31,7 @@ export default function Sidebar({ mobileOpen, onClose }: { mobileOpen?: boolean,
       <div className={`w-64 h-screen glass-card rounded-none border-y-0 border-l-0 fixed left-0 top-0 flex flex-col pt-8 pb-4 z-50 transition-transform duration-300 ease-in-out ${mobileOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}>
         <div className="px-6 mb-8 flex justify-between items-center">
           <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-            FinanzasIA
+            NexoFin
           </div>
           {onClose && (
             <button onClick={onClose} className="md:hidden text-gray-400 hover:text-white">

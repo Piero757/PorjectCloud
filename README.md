@@ -1,44 +1,39 @@
-# FinanzasIA
+# NexoFin
 
-FinanzasIA es una plataforma completa de gestión de finanzas personales que integra inteligencia artificial para proporcionar predicciones y consejos de ahorro basados en los patrones de gasto del usuario.
+NexoFin es una plataforma completa de gestión de finanzas personales que integra inteligencia artificial para proporcionar predicciones y consejos de ahorro basados en los patrones de gasto del usuario.
 
-## Características
+## Características Principales
 
-### Backend
-- **Framework:** Django REST Framework.
-- **Base de Datos:** PostgreSQL.
-- **Autenticación:** JWT (JSON Web Tokens).
-- **Endpoints:**
-  - `/api/auth/register/` & `/api/auth/login/` - Autenticación.
-  - `/api/movimientos/` - CRUD de ingresos y gastos.
-  - `/api/reportes/` - Reportes mensuales con agregaciones.
-  - `/api/presupuestos/` - Control de límites de gasto.
-  - `/api/predicciones/` - Predicción de gastos mediante Machine Learning (Scikit-Learn).
-- **Docker:** Configurado para ejecutar con `docker-compose`.
+*   **Autenticación**: Registro e inicio de sesión de usuarios seguro con JWT.
+*   **Gestión de Movimientos**: Registro de ingresos y gastos con categorización y fecha.
+*   **Presupuestos**: Definición de límites de gasto mensuales por categoría.
+*   **Impuestos**: Registro de comprobantes (Boletas y Facturas) con cálculo automático del IGV (18%).
+*   **Reportes y Dashboard**: Resumen financiero mensual, cálculo de balance y visualización gráfica (Chart.js) de ingresos vs gastos y desglose por categorías.
+*   **Inteligencia Artificial (Predicciones y Chatbot)**: 
+    *   Predicción de gastos para el próximo mes basada en el historial del usuario (Machine Learning con scikit-learn).
+    *   Generación automática de consejos de ahorro.
+    *   **Chatbot integrado** (Gemini) que actúa como tu asistente financiero personal ("Fini"), capaz de responder preguntas contextuales usando tus datos reales.
 
-### Frontend
-- **Framework:** Next.js (App Router).
-- **Visualización:** Chart.js, react-chartjs-2.
-- **Animaciones:** Framer Motion.
-- **Estilos:** TailwindCSS (Glassmorphism UI).
-- **Páginas:**
-  - Login/Registro
-  - Dashboard (Gráficos interactivos)
-  - Gestión de Movimientos
-  - Configuración de Presupuestos
-  - Predicciones IA
+## Tecnologías Utilizadas
+
+*   **Frontend**: Next.js (App Router), React, Tailwind CSS, Framer Motion, Chart.js, Lucide Icons.
+*   **Backend**: Python, Django, Django REST Framework, Simple JWT, scikit-learn (para el modelo predictivo de Machine Learning).
+*   **Base de Datos**: SQLite (configurada por defecto, fácilmente migrable a PostgreSQL).
+*   **Despliegue**: Render (listo para la integración continua a través de GitHub).
 
 ## Requisitos Previos
-- Docker y Docker Compose
-- Node.js (opcional, para ejecutar el frontend en desarrollo local)
 
-## Instrucciones para levantar el proyecto (Docker)
+*   Python 3.9 o superior
+*   Node.js 18 o superior
+*   Git
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone <repo-url>
-   cd FinanzasIA
-   ```
+## Instalación y Configuración Local
+
+1.  **Clonar el repositorio**
+    ```bash
+    git clone https://github.com/Piero757/PorjectCloud.git
+    cd FinanzasIA
+    ```
 
 2. **Levantar los servicios con Docker Compose:**
    Esto construirá la imagen del backend y levantará la base de datos PostgreSQL.

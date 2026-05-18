@@ -10,7 +10,7 @@ export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [userData, setUserData] = useState<any>(null);
   const [messages, setMessages] = useState([
-    { text: '¡Hola! Soy tu asistente financiero virtual. ¿En qué te puedo ayudar hoy?', sender: 'bot' }
+    { text: '¡Hola! Soy Fini, tu asistente financiero virtual. ¿En qué te puedo ayudar hoy?', sender: 'bot' }
   ]);
   const [input, setInput] = useState('');
   const pathname = usePathname();
@@ -18,7 +18,7 @@ export default function Chatbot() {
   // Resetear el chat al cerrar sesión (ir al login)
   useEffect(() => {
     if (pathname === '/') {
-      setMessages([{ text: '¡Hola! Soy tu asistente financiero virtual. ¿En qué te puedo ayudar hoy?', sender: 'bot' }]);
+      setMessages([{ text: '¡Hola! Soy Fini, tu asistente financiero virtual. ¿En qué te puedo ayudar hoy?', sender: 'bot' }]);
       setUserData(null);
       setIsOpen(false);
     }
@@ -66,7 +66,7 @@ export default function Chatbot() {
         },
         body: JSON.stringify({
           message: userMsg.text,
-          history: currentMessages.filter(m => m.text !== '¡Hola! Soy tu asistente financiero virtual. ¿En qué te puedo ayudar hoy?'),
+          history: currentMessages.filter(m => m.text !== '¡Hola! Soy Fini, tu asistente financiero virtual. ¿En qué te puedo ayudar hoy?'),
           userData: userData
         }),
       });
@@ -109,7 +109,7 @@ export default function Chatbot() {
             <div className="bg-primary p-4 flex justify-between items-center text-white">
               <div className="flex items-center gap-2">
                 <Bot size={20} />
-                <h3 className="font-bold">FinanzasIA Bot</h3>
+                <h3 className="font-bold">Fini</h3>
               </div>
               <button onClick={toggleChat} className="hover:text-gray-200 transition-colors">
                 <X size={20} />
